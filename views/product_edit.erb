@@ -1,0 +1,13 @@
+<h1>Update <%= @product.name() %> </h1>
+<form action="/manager/products/<%= @product.id() %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="form-group">
+    <label for="new_name">Enter a new name for the product:</label>
+    <input id="new_name" type="text" name="new_name">
+  </div>
+  <div class="form-group">
+    <label for="new_price">Enter a new price for the product:</label>
+    <input id="new_price" type="text" name="new_price">
+  </div>
+  <button type="submit">Update!</button>
+</form>

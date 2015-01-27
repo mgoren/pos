@@ -4,7 +4,7 @@
 <% if Product.any?() %>
 <ul>
   <% Product.all().each() do |product| %>
-  <li><%= product.name() %> - <%= product.price() %></li>
+  <li><%= product.name() %> - <%= product.price() %> <a href="/manager/products/<%= product.id() %>/edit">[Update]</a> </li>
   <% end %>
 </ul>
 <% else %>
