@@ -1,0 +1,21 @@
+<h1>CRUD Products</h1>
+
+<h2>Products in stock:</h2>
+<% if Product.any?() %>
+<ul>
+  <% Product.all().each() do |product| %>
+  <li><%= product.name() %> - <%= product.price() %></li>
+  <% end %>
+</ul>
+<% else %>
+  No products in stock!
+<% end %>
+
+<h2>Add New Product:</h2>
+<form action="/manager/products" method="post">
+  <label for="product_name">Enter product name:</label>
+  <input type="text" name="product_name" id="product_name">
+  <label for="price">Enter product price:</label>
+  <input type="text" name="price" id="price">
+  <button type="submit" class="btn btn-success btn-sm">Add Product</button>
+</form>
