@@ -16,8 +16,12 @@ end
 post("/manager/products") do
   product_name = params.fetch("product_name")
   price = params.fetch("price")
-  Product.create({ :name => product_name, :price => price })
-  redirect("/manager/products")
+  @product = Product.new({ :name => product_name, :price => price })
+  if @product.save()
+    redirect("/manager/products")
+  else
+    erb(:errors)
+  end
 end
 
 

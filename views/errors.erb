@@ -1,0 +1,9 @@
+<h3>Oops! You totally did that wrong. Shame on you!</h3>
+
+<ul>
+  <% @product.errors().full_messages().each() do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+
+<h5><a href="/manager/products">Return to Managers product page</a></h5>
