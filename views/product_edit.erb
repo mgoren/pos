@@ -9,5 +9,10 @@
     <label for="new_price">Enter a new price for the product:</label>
     <input id="new_price" type="text" name="new_price">
   </div>
-  <button type="submit">Update!</button>
+  <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-tree-conifer"></span> Update!</button>
+</form>
+<br>
+<form action="/manager/products/<%= @product.id() %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-hand-down"></span> Delete product!</button>
 </form>

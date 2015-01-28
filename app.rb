@@ -29,8 +29,14 @@ patch("/manager/products/:id") do
   end
   if new_price <= 0.0
     new_price = product.price()
-  end  
+  end
   product.update({ :name => new_name, :price => new_price })
+  redirect("/manager/products")
+end
+
+delete("/manager/products/:id") do
+  product = Product.find(params.fetch("id").to_i())
+  product.delete()
   redirect("/manager/products")
 end
 
@@ -45,17 +51,12 @@ post("/manager/products") do
   end
 end
 
+get("/cashier/products") do
+  erb(:cashier_products)
+end
 
-
-
-
-
-# post("/new_purchase") do
-#   purchase = Purchase.create()
-#   @purchase_id = purchase.id().to_i()
-#   erb(:products)
-# end
-#
-# post("/products") do
-#   erb(:products)
-# end
+post("/shopping_cart") do
+  @purchase = Purchase.create()
+  @purchase.add_products(params.fetch('product_ids'))
+  erb(:shopping_cart)
+end

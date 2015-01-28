@@ -1,0 +1,11 @@
+<h1>Product List</h1>
+
+<form action="/shopping_cart" method="post">
+    <% Product.all().each() do |product| %>
+      <div class="checkbox">
+        <label><input type="checkbox" name="product_ids[]" value="<%= product.id() %>"><%= product.name() %></label><br>
+      </div>
+    <% end %>
+    <button type="submit">Purchase</button>
+
+</form>

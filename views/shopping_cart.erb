@@ -1,0 +1,10 @@
+<h1>Purchase <%= @purchase.id() %></h1>
+
+
+<% @purchase.products().each() do |product| %>
+  <li><%= product.name() %> - <%= product.price() %></li>
+<% end %>
+<br>
+<p><strong>Total:</strong> <%= @purchase.total() %></p>
+<br>
+<a href="/cashier/products">Click here to complete purchase</a>
