@@ -12,7 +12,13 @@ describe(Purchase) do
     end
   end
 
+  describe(".between") do
+    it("return purchases made between given dates") do
+      test_purchase = Purchase.create()
+      test_purchase2 = Purchase.create()
+      expect(Purchase.between("2015-01-26", "2015-01-29" )).to eq([test_purchase, test_purchase2])
+    end
+  end
 
-  scope()
 
 end
